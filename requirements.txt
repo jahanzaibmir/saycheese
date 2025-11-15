@@ -1,0 +1,5 @@
+# SayCheese - Python Dependencies
+# Install with: pip3 install -r requirements.txt
+
+opencv-python>=4.5.0
+PyQt5>=5.15.0
