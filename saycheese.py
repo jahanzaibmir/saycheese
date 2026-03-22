@@ -28,10 +28,10 @@ def check_dependencies():
         missing_deps.append("PyQt5")
         
     if missing_deps:
-        print("❌ Missing dependencies:")
+        print(" Missing dependencies:")
         for dep in missing_deps:
             print(f"   - {dep}")
-        print("\n💡 Install them using the setup script:")
+        print("\n Install them using the setup script:")
         print("   chmod +x install_dependencies.sh && ./install_dependencies.sh")
         return False
         
@@ -64,7 +64,7 @@ class SayCheeseApp(QWidget):
         self.setup_directories()
         
         # Initialize camera
-        progress = QProgressDialog("Initializing camera... Say Cheese! 📸", "Cancel", 0, 100, self)
+        progress = QProgressDialog("Initializing camera... Say Cheese! ", "Cancel", 0, 100, self)
         progress.setWindowModality(Qt.WindowModal)
         progress.show()
         
@@ -134,7 +134,7 @@ class SayCheeseApp(QWidget):
                         # Test if camera actually works
                         ret, frame = self.camera.read()
                         if ret and frame is not None:
-                            print(f"✅ Camera found at index {camera_index}")
+                            print(f" Camera found at index {camera_index}")
                             
                             # Configure camera
                             self.camera.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
@@ -157,7 +157,7 @@ class SayCheeseApp(QWidget):
         # If we get here, no camera was found
         QMessageBox.critical(
             self,
-            "Camera Not Found 😔",
+            "Camera Not Found ",
             "No camera device could be found!\n\n"
             "Please check:\n"
             "• Camera is connected properly\n"
@@ -183,12 +183,12 @@ class SayCheeseApp(QWidget):
 
     def initialize_ui(self):
         """Set up the user interface"""
-        self.setWindowTitle(f"SayCheese 📸 v{self.version} - by {self.developer}")
+        self.setWindowTitle(f"SayCheese  v{self.version} - by {self.developer}")
         self.setFixedSize(1000, 700)
         self.apply_dark_theme()
         
         # Main camera display
-        self.camera_display = QLabel("Say Cheese! 😊")
+        self.camera_display = QLabel("Say Cheese! ")
         self.camera_display.setAlignment(Qt.AlignCenter)
         self.camera_display.setStyleSheet("""
             QLabel {
@@ -203,17 +203,17 @@ class SayCheeseApp(QWidget):
         self.camera_display.setMinimumSize(800, 500)
         
         # Mode buttons
-        self.photo_btn = QPushButton("📸 Photo Mode")
+        self.photo_btn = QPushButton(" Photo Mode")
         self.video_btn = QPushButton("🎥 Video Mode")
         
         # Capture button
-        self.capture_btn = QPushButton("📷 Capture Photo")
+        self.capture_btn = QPushButton(" Capture Photo")
         self.capture_btn.setStyleSheet(self.get_capture_button_style())
         
         # Settings buttons
-        self.mirror_btn = QPushButton("🪞 Mirror: ON")
-        self.flip_btn = QPushButton("↕️ Flip: OFF")
-        self.gallery_btn = QPushButton("📂 Open Gallery")
+        self.mirror_btn = QPushButton(" Mirror: ON")
+        self.flip_btn = QPushButton(" Flip: OFF")
+        self.gallery_btn = QPushButton(" Open Gallery")
         
         # Style all buttons
         for btn in [self.photo_btn, self.video_btn, self.mirror_btn, self.flip_btn, self.gallery_btn]:
@@ -359,13 +359,13 @@ class SayCheeseApp(QWidget):
             self.capture_btn.setText("📷 Capture Photo")
         else:
             if self.recording_active:
-                self.capture_btn.setText("⏹️ Stop Recording")
+                self.capture_btn.setText(" Stop Recording")
             else:
-                self.capture_btn.setText("⏺️ Start Recording")
+                self.capture_btn.setText(" Start Recording")
                 
         # Update mirror/flip buttons
-        self.mirror_btn.setText(f"🪞 Mirror: {'ON' if self.mirror_enabled else 'OFF'}")
-        self.flip_btn.setText(f"↕️ Flip: {'ON' if self.flip_enabled else 'OFF'}")
+        self.mirror_btn.setText(f" Mirror: {'ON' if self.mirror_enabled else 'OFF'}")
+        self.flip_btn.setText(f" Flip: {'ON' if self.flip_enabled else 'OFF'}")
         
     def get_active_style(self):
         return """
@@ -401,8 +401,8 @@ class SayCheeseApp(QWidget):
             
             try:
                 cv2.imwrite(filepath, self.current_frame_data, [cv2.IMWRITE_JPEG_QUALITY, 95])
-                self.show_status(f"✅ Photo saved: {filename}")
-                print(f"📸 Photo saved to: {filepath}")
+                self.show_status(f" Photo saved: {filename}")
+                print(f" Photo saved to: {filepath}")
             except Exception as e:
                 self.show_error(f"Failed to save photo: {e}")
                 
@@ -444,7 +444,7 @@ class SayCheeseApp(QWidget):
         self.update_ui()
         
         recording_time = time.time() - self.recording_start_time
-        self.show_status(f"✅ Recording saved! Duration: {recording_time:.1f}s")
+        self.show_status(f" Recording saved! Duration: {recording_time:.1f}s")
         print(f"🎥 Video saved to: {self.final_video_path}")
         
     def toggle_mirror(self):
@@ -463,7 +463,7 @@ class SayCheeseApp(QWidget):
         """Open the gallery directory"""
         try:
             subprocess.run(['xdg-open', self.save_directory])
-            self.show_status("📂 Opening gallery...")
+            self.show_status(" Opening gallery...")
         except Exception as e:
             self.show_error(f"Failed to open gallery: {e}")
             
@@ -511,7 +511,7 @@ class SayCheeseApp(QWidget):
                                 
     def show_status(self, message):
         """Show status message"""
-        print(f"ℹ️ {message}")
+        print(f" {message}")
         
     def show_warning(self, message):
         """Show warning message"""
@@ -558,7 +558,7 @@ class SayCheeseApp(QWidget):
         H         - Show this help
         Esc       - Exit application
         
-        📁 Photos/Videos are saved to:
+         Photos/Videos are saved to:
         ~/Pictures/SayCheese/
         """
         QMessageBox.information(self, "SayCheese Help", help_text)
@@ -570,7 +570,7 @@ class SayCheeseApp(QWidget):
         if self.camera and self.camera.isOpened():
             self.camera.release()
             
-        print("👋 SayCheese application closed")
+        print(" SayCheese application closed")
         event.accept()
 
 def main():
@@ -584,9 +584,9 @@ def main():
         QMessageBox.warning(None, "Platform Warning", 
                           "SayCheese is optimized for Linux. Some features may not work on other platforms.")
     
-    print("🎉 Starting SayCheese Camera Application...")
-    print("👨‍💻 Developed by Jahanzaib Ashraf Mir")
-    print("📸 Say Cheese! 😊")
+    print(" Starting SayCheese Camera Application...")
+    print(" Developed by Jahanzaib Ashraf Mir")
+    print(" Say Cheese! 😊")
     
     window = SayCheeseApp()
     window.show()
