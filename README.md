@@ -7,6 +7,7 @@ You will find  Say cheese your day to day life companion
 
 You can use it by  repo directly or you can install it's bash script
 
+
 # System Packages to install:
 sudo apt install \
     python3 \
@@ -20,5 +21,10 @@ sudo apt install \
 pip3 install opencv-python PyQt5
 
 # Run the application
+git clone https://github.com/jahanzaib/saycheese.git
+
+cd SayCheese
+
+
 python3 saycheese.py
 
