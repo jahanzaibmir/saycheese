@@ -11,11 +11,11 @@ You can use it by  repo directly or you can install it's bash script
 # System Packages to install:
 sudo apt install 
 
-    python3 \
-    python3-pip \
-    ffmpeg \
-    libx264-dev \
-    libasound2-dev \
+    python3 
+    python3-pip 
+    ffmpeg 
+    libx264-dev 
+    libasound2-dev 
     v4l-utils
     python-opencv
 
