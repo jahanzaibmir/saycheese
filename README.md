@@ -21,7 +21,7 @@ sudo apt install \
 pip3 install opencv-python PyQt5
 
 # Run the application
-git clone https://github.com/jahanzaib/saycheese.git
+git clone https://github.com/jahanzaibmir/saycheese.git
 
 cd SayCheese
 
