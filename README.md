@@ -1,11 +1,9 @@
 # About SayChesee
 
-Say cheese is a officially camera application designed to work for linux Ubuntu/Debian 
+Say cheese is a officially camera application designed to work for Linux
 
 
 You will find  Say cheese your day to day life companion
-
-You can use it by  repo directly or you can install it's bash script
 
 
 # System Packages to install:
