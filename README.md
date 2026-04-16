@@ -9,13 +9,16 @@ You can use it by  repo directly or you can install it's bash script
 
 
 # System Packages to install:
-sudo apt install \
+sudo apt install 
+
     python3 \
     python3-pip \
     ffmpeg \
     libx264-dev \
     libasound2-dev \
     v4l-utils
+    python-opencv
+
 
 # Install Python packages
 pip3 install opencv-python PyQt5
