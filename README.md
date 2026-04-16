@@ -9,7 +9,7 @@ You can use it by  repo directly or you can install it's bash script
 
 
 # System Packages to install:
-sudo apt install 
+    sudo apt install 
 
     python3 
     python3-pip 
