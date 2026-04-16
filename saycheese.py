@@ -119,7 +119,7 @@ class SayCheeseApp(QWidget):
         self.pictures_dir = Path.home() / "Pictures" / "SayCheese"
         self.pictures_dir.mkdir(parents=True, exist_ok=True)
         self.save_directory = str(self.pictures_dir)
-        print(f"📁 Photos and videos will be saved to: {self.save_directory}")
+        print(f" Photos and videos will be saved to: {self.save_directory}")
         
     def initialize_camera(self):
         """Initialize camera with multiple fallbacks"""
@@ -339,9 +339,9 @@ class SayCheeseApp(QWidget):
         self.update_ui()
         
         if mode == "photo":
-            self.show_status("📸 Photo mode activated - Press Capture or Spacebar!")
+            self.show_status(" Photo mode activated - Press Capture or Spacebar!")
         else:
-            self.show_status("🎥 Video mode activated - Press Record or Spacebar!")
+            self.show_status(" Video mode activated - Press Record or Spacebar!")
             
     def update_ui(self):
         """Update UI based on current state"""
@@ -445,7 +445,7 @@ class SayCheeseApp(QWidget):
         
         recording_time = time.time() - self.recording_start_time
         self.show_status(f" Recording saved! Duration: {recording_time:.1f}s")
-        print(f"🎥 Video saved to: {self.final_video_path}")
+        print(f" Video saved to: {self.final_video_path}")
         
     def toggle_mirror(self):
         """Toggle mirror mode"""
@@ -582,11 +582,11 @@ def main():
     # Check if running on Linux
     if not sys.platform.startswith('linux'):
         QMessageBox.warning(None, "Platform Warning", 
-                          "SayCheese is optimized for Linux. Some features may not work on other platforms.")
+                          "SayCheese is optimized for Linux. .")
     
     print(" Starting SayCheese Camera Application...")
     print(" Developed by Jahanzaib Ashraf Mir")
-    print(" Say Cheese! 😊")
+    print(" Say Cheese! ")
     
     window = SayCheeseApp()
     window.show()
