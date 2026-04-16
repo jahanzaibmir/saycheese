@@ -17,7 +17,7 @@ You can use it by  repo directly or you can install it's bash script
     libx264-dev 
     libasound2-dev 
     v4l-utils
-    python-opencv
+ 
 
 
 # Install Python packages
